@@ -11,6 +11,7 @@ import Login from '@/components/Login'
 import Signup from '@/components/Signup'
 import Confirm from '@/components/Confirm'
 import MyPage from '@/views/MyPage'
+import Vutify from '@/views/Vutify'
 
 Vue.use(VueRouter)
 
@@ -105,7 +106,16 @@ const router = new VueRouter({
     { 
       path: '/logout',
       beforeEnter: logout
-    }
+    },
+    {
+      path: '/vutify',
+      name: 'Vutify',
+      components: {
+//        header: Header,
+        default: Vutify,
+        footer: Footer,
+      },
+    },
   ]
 })
 
