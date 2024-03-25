@@ -6,12 +6,13 @@
       <v-row><v-col cols="4"><v-btn>1</v-btn></v-col><v-col cols="4"><v-btn>2</v-btn></v-col><v-col cols="4"><v-btn>3</v-btn></v-col></v-row>
       <v-row><v-btn><v-col cols="4">11111111111111</v-col></v-btn><v-btn><v-col cols="4">2</v-col></v-btn></v-row>
 
-
+        <v-btn @click="darkchange()">darking{{showdark}}</v-btn>
       <p>vutify</p>
     </v-container>
 
 表をコピペした。
     <v-container>
+
       <v-data-table
         :headers="headers"
         :items="items"
@@ -21,7 +22,10 @@
       >
         <template v-slot:top>
           topはv-data-tableの名前付きスロット。
-          <v-toolbar flat>
+          <v-toolbar 
+            flat
+            collapse
+            src="https://www.kuikasuojisan.net/application/files/9916/9112/6253/imo.png">
             <v-toolbar-title>My Contacts</v-toolbar-title>
             <v-divider class="mx-4" inset vertical></v-divider>
             <v-spacer></v-spacer>
@@ -36,7 +40,6 @@
         </template>
       </v-data-table>
     </v-container>
-
   </div>
 </template>
 <script>
@@ -44,6 +47,7 @@
   data() {
     return {
       test: "test",
+      dark: true,
       
       search: '',
       pagination: {},
@@ -59,7 +63,19 @@
       ],
     };
   },
+  computed: {
+    showdark: function (){
+      return  !this.dark;
+    }
+  },
+  created() {
+    this.$vuetify.theme.dark = true;
+  },
   methods: {
+    darkchange: function() {
+      this.dark = !this.dark;
+      this.$vuetify.theme.dark = this.dark;
+    }
   }
 }
 </script>

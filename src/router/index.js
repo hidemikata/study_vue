@@ -12,6 +12,7 @@ import Signup from '@/components/Signup'
 import Confirm from '@/components/Confirm'
 import MyPage from '@/views/MyPage'
 import Vutify from '@/views/Vutify'
+import Aba from '@/views/Aba'
 
 Vue.use(VueRouter)
 
@@ -114,6 +115,13 @@ const router = new VueRouter({
 //        header: Header,
         default: Vutify,
         footer: Footer,
+      },
+    },
+    {
+      path: '/aba',
+      name: 'Aba',
+      components: {
+        default: Aba,
       },
     },
   ]
